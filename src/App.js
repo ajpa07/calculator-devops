@@ -89,7 +89,7 @@ function App() {
 
 
   function inputChangedHandler(e) {
-    const currentInput = result;
+    //const currentInput = result;
     
 }
 
