@@ -34,6 +34,7 @@ pipeline {
             steps {
               echo 'Building Image'
               sh 'docker build -t react-calculator .'
+              sh 'docker tag react-calculator ajpa/calculator:react-calculator'  
               
             }
         }
