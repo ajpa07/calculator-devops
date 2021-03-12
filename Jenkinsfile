@@ -9,7 +9,7 @@ pipeline {
               } 
             }
         }
-       stage('Build') { 
+       stage('Testing') { 
             steps {
               echo 'Testing'
               nodejs('NodeJS'){
