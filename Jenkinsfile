@@ -5,6 +5,7 @@ pipeline {
     
     environment {
             CI = 'true'
+            image_name = ''
         }
     
     stages {
@@ -34,6 +35,16 @@ pipeline {
               echo 'Building Image'
               sh 'docker build -t react-calculator .'
               
+            }
+        }
+        stage('Push Image Docker Hub') { 
+            steps {
+              echo 'Pushing Image'
+              withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+                  sh 'docker login -u ajpa -p $PASSWORD'
+              }
+              sh 'docker push ajpa/calculator:react-calculator' 
+         
             }
         }
     }
