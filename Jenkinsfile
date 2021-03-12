@@ -33,8 +33,7 @@ pipeline {
             steps {
               echo 'Building Image'
               sh 'docker build -t react-calculator .'
-              sh 'docker run -d -p 8080:80 react-calculator'  
-             
+              
             }
         }
     }
