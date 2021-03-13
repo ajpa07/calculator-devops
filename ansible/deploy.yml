@@ -4,5 +4,5 @@
   tasks:
     - name: Pull docker image DevOpsCalculator
       docker_image:
-        name: ajpa/calculator
+        name: ajpa/calculator/react-calculator
         source: pull
