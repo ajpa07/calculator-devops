@@ -2,8 +2,15 @@ import React, {useState, useEffect, useRef} from 'react';
 import "./App.css";
 import * as Math from "mathjs";
 import { isInteger } from 'mathjs';
+const pino = require('pino');
 
+  
 function App() {
+  const logger = pino({
+    level: 'info',
+    timestamp: () => `,"time":${new Date().toISOString()}`
+  
+});
   const [result, setResult] = useState("0");
   const inputRef = useRef(null);
    
@@ -12,14 +19,18 @@ function App() {
   function click(e){
     if((e.target.name === 'ln' || e.target.name === '√') && result.split(e.target.name)[0] !== ''){
       setResult("Error");
+      logger.info('Invalid input provided for calculating ln');
     }
     else if((e.target.name === '!' || e.target.name === '^') && result.split(e.target.name)[0] === ''){
       setResult("Error");
+      logger.info('Invalid input provided for calculating factorial');
     }
     else {
       setResult(
         result + e.target.name
       );
+      logger.info(`Input provided = ${result}${e.target.name}`);
+    
     }
   }
 
@@ -27,22 +38,25 @@ function App() {
   function changeSign(){
     if(result.substring(0, 1) === "-"){
      setResult(result.substring(1, result.length));
+     logger.info(`Input provided = ${result.substring(1, result.length)}`);
     }
     else{
      setResult("-" + result);
+     logger.info(`Input provided = ${"-" + result}`);
     }
   }
      
 
   function clear(){
     setResult("");
+    logger.info('Input provided Clear');
   }
 
 
   function back(){
     let resultString = result.toString();
     setResult(resultString.slice(0,resultString.length-1));
-   
+    logger.info('Input provided Back');
   }
 
   
@@ -58,10 +72,12 @@ function App() {
           for(let i = 2; i <= n; i++) 
               f = f*i; 
           setResult(f.toString()); 
+          logger.info(`Result = ${f.toString()}`);
 
           }
           else{
             setResult("Error");
+            logger.info('Result = Error');
           }
           
       }
@@ -69,21 +85,27 @@ function App() {
         value_array = result.split('^');
         if(value_array[1].length > 0){
         setResult(Math.pow(Number(value_array[0]),Number(value_array[1])).toString());
+        logger.info(`Result = ${Math.pow(Number(value_array[0]),Number(value_array[1])).toString()}`);
         }
         else{
           setResult("Error");
+          logger.info('Result = Error');
         }
       } 
       else if(result.includes("ln")) {    
         value_array = result.split('ln');
         setResult(Math.log(Number(value_array[1])).toString());
+        logger.info(`Result = ${Math.log(Number(value_array[1])).toString()}`);
+        
      }   
      else if(result.includes('√')) {    
         value_array = result.split('√');
         setResult(Math.sqrt(Number(value_array[1])).toString());
+        logger.info(`Result = ${Math.log(Number(value_array[1])).toString()}`);
      }   
      else {   
           setResult(result);
+          logger.info(`Result = ${result}`);
       }    
   } 
 
