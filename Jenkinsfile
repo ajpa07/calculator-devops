@@ -48,5 +48,15 @@ pipeline {
          
             }
         }
+        stage('Pull docker image with ansible') { 
+            steps {
+              echo 'Pull Image'
+              script{
+                  ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'ansible/inventory', playbook: 'ansible/deploy.yml', sudoUser: null
+                }
+          
+         
+            }
+        }
     }
 }
