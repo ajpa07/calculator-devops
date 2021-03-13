@@ -1,0 +1,8 @@
+---
+- name: Pull docker image DevOpsCalculator
+  hosts: localhost
+  tasks:
+    - name: Pull docker image DevOpsCalculator
+      docker_image:
+        name: ajpa/calculator
+        source: pull
