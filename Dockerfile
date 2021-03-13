@@ -1,20 +1,24 @@
-
+# Stage 1
 # pull official base image
-FROM node:13-alpine
+FROM node:15-alpine AS build-step
 
-# set working directory
+RUN mkdir /app
+
+# Set working directory
 WORKDIR /app
 
+COPY package.json /app
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install 
+RUN npm install
 
-# add app
-COPY . ./
+COPY . /app
 
-# start app
-CMD ["npm", "start"]
+RUN npm run build
+
+
+# Stage 2
+FROM nginx:alpine
+
+COPY --from=build-step /app/build /usr/share/nginx/html
 
 
