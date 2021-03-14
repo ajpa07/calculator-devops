@@ -2,7 +2,9 @@
 # pull official base image
 FROM node:15-alpine AS build-step
 RUN npm cache clear --force
+RUN npm config rm proxy
 RUN mkdir /app
+RUN npm config rm https-proxy
 
 # Set working directory
 WORKDIR /app
