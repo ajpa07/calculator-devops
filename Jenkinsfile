@@ -30,6 +30,7 @@ pipeline {
              
             }
         }
+        /*
         stage('Docker Image Build') { 
             steps {
               echo 'Building Image'
@@ -48,6 +49,7 @@ pipeline {
          
             }
         }
+        */
         stage('Pull docker image with ansible') { 
             steps {
               echo 'Pull Image'
