@@ -8,19 +8,23 @@ RUN mkdir /app
 # Set working directory
 WORKDIR /app
 
-COPY package.json /app
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package*.json /app/
 
 RUN npm install
 
 COPY . /app
 
-RUN npm run build
-
+#RUN npm run build
+# start app
+CMD ["npm", "start"]
 
 # Stage 2
-FROM nginx:alpine
+#FROM nginx:alpine
 
-COPY --from=build-step /app/build /usr/share/nginx/html
+#COPY --from=build-step /app/build /usr/share/nginx/html
 
 
 
