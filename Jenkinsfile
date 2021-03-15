@@ -53,7 +53,7 @@ pipeline {
          
             }
         }
-        /*
+        
         stage('Pull docker image with ansible') { 
             steps {
               echo 'Pull Image'
@@ -64,7 +64,7 @@ pipeline {
          
             }
         }
-    */    
+      
     }
     
 }
