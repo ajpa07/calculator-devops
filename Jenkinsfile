@@ -17,7 +17,7 @@ pipeline {
              
             }
         }
-        /*
+        
        stage('Testing') { 
             steps {
               echo 'Testing'
@@ -25,7 +25,7 @@ pipeline {
              
             }
         }
-        
+        /*
         stage('Build') { 
             steps {
               echo 'Building'
