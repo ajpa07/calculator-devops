@@ -9,6 +9,7 @@ pipeline {
         }
     
     stages {
+        /*
         stage('Installing dependencies') { 
             steps {
               echo 'Installing'
@@ -62,7 +63,7 @@ pipeline {
          
             }
         }
-        
+    */    
     }
-    */
+    
 }
