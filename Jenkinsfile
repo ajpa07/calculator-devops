@@ -1,13 +1,13 @@
 pipeline {
     agent any
-    /*
+    
     tools {nodejs "NodeJS"}
     
     environment {
             CI = 'true'
             image_name = ''
         }
-    
+    /*
     stages {
         stage('Installing dependencies') { 
             steps {
