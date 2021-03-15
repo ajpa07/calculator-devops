@@ -7,7 +7,7 @@ pipeline {
             CI = 'true'
             image_name = ''
         }
-    /*
+    
     stages {
         stage('Installing dependencies') { 
             steps {
@@ -16,7 +16,7 @@ pipeline {
              
             }
         }
-        
+        /*
        stage('Testing') { 
             steps {
               echo 'Testing'
