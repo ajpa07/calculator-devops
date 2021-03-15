@@ -33,7 +33,7 @@ pipeline {
              
             }
         }
-        /*
+        
         stage('Docker Image Build') { 
             steps {
               echo 'Building Image'
@@ -42,6 +42,7 @@ pipeline {
               
             }
         }
+        /*
         stage('Push Image Docker Hub') { 
             steps {
               echo 'Pushing Image'
