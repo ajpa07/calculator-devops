@@ -24,7 +24,7 @@ pipeline {
              
             }
         }
-        /*
+        
         stage('Build') { 
             steps {
               echo 'Building'
@@ -32,7 +32,7 @@ pipeline {
              
             }
         }
-        
+        /*
         stage('Docker Image Build') { 
             steps {
               echo 'Building Image'
