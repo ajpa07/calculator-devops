@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+    /*
     tools {nodejs "NodeJS"}
     
     environment {
@@ -32,7 +32,7 @@ pipeline {
              
             }
         }
-        /*
+        
         stage('Docker Image Build') { 
             steps {
               echo 'Building Image'
