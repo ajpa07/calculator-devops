@@ -16,6 +16,7 @@ pipeline {
              
             }
         }
+        /*
        stage('Testing') { 
             steps {
               echo 'Testing'
@@ -60,5 +61,6 @@ pipeline {
          
             }
         }
+        */
     }
 }
