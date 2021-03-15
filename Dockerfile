@@ -2,6 +2,8 @@
 # pull official base image
 FROM node:15-alpine AS build-step
 
+RUN npm install -g npm@7.6.3
+
 RUN mkdir /app
 
 
